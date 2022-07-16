@@ -2,7 +2,7 @@
     <div>
         <input
             placeholder="Имя"
-            v-bind:value="lists.name"
+            v-model="lists.name"
             @input="lists.name = $event.target.value"
         />
         <input
