@@ -1,18 +1,15 @@
 <template>
-  <MainTable/>
+<router-view />
 </template>
 
 <script>
-import MainTable from './components/MainTable.vue'
-
 export default {
-  name: 'App',
-  components: {
-    MainTable
-  }
+    name: "App",
 }
 </script>
 
 <style>
-
+#app {
+    font-family: monospace;
+}
 </style>

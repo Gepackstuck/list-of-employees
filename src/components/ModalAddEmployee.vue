@@ -1,48 +1,61 @@
 <template>
-    <div>
+    <div class="modalDialog">
+        <div>
+            <h2>Добавить поле</h2>
+        <p> Введите имя
         <input
             placeholder="Имя"
             v-model="lists.name"
             @input="lists.name = $event.target.value"
         />
+        </p>
+        <p> Введите Фамилию
         <input
             placeholder="Фамилия"
             v-model="lists.surName"
             @input="lists.surName = $event.target.value"
         />
+        </p>
+        <p> Введите Отчетсво
         <input
             placeholder="Отчество"
-            v-bind:value="lists.midName"
+            v-model="lists.midName"
             @input="lists.midName = $event.target.value"
         />
+        </p>
+        <p> Введите Должность
         <input
             placeholder="Должность"
-            v-bind:value="lists.position"
+            v-model="lists.position"
             @input="lists.position = $event.target.value"
         />
-        <!-- <input
-        type="checkbox"
-            placeholder="Трудовая (галочка)"
-            v-model="checked"
-            @input="lists.empRec = $event.target.value"
-        /> -->
+        </p>
+        <p> Введите Оклад
         <input
+            type="number"
             placeholder="Оклад"
-            v-bind:value="lists.salary"
+            v-model="lists.salary"
             @input="lists.salary = $event.target.value"
         />
+        </p>
+        <p> Введите Дату выхода
         <input
+            type="date"
             placeholder="Дата выхода"
-            v-bind:value="lists.date"
+            v-model="lists.date"
             @input="lists.date = $event.target.value"
         />
+        </p>
+        <p> Введите Ставку
         <input
-            placeholder="Ставка полная/половина"
-            v-bind:value="lists.stake"
+            placeholder="Полная/половина"
+            v-model="lists.stake"
             @input="lists.stake = $event.target.value"
         />
-        <button @click="addList">Сохранить</button>
-        <button @click="$emit('close')">Закрыть</button>
+        </p>
+        <button class="save" @click="addList">Сохранить</button>
+        <button @click="$emit('close')" class="close">Х</button>
+        </div>
     </div>
 </template>
 
@@ -60,7 +73,6 @@ export default {
           midName: "",
           surName: "",
           position: "",
-        //   empRec: this.checked,
           salary: "",
           date: "",
           stake: "",
@@ -90,4 +102,54 @@ export default {
 </script>
 
 <style>
+.modalDialog {
+	position: fixed;
+	font-family: 'Courier New', Courier, monospace;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	/* transition: opacity 1000ms ease-in; */
+    display: flex;
+}
+
+.modalDialog > div {
+    height: 400px;
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+}
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 20px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 12px;
+	box-shadow: 1px 1px 3px #000;
+    cursor: pointer;
+}
+input {
+    font-family: monospace;
+}
+.save {
+    margin-left: 25px;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+    cursor: pointer;
+}
+.save:hover {
+    background-color: #e7e7e7;
+}
 </style>
